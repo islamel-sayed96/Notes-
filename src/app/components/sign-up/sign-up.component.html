@@ -1,0 +1,48 @@
+<section id="signUp">
+    <div class="container">
+        <form [formGroup]="signUp" (ngSubmit)="signUp.valid&&FormData()">
+            <div class="form w-50 m-auto">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input [class.is-valid]="signUp.controls['FName'].status=='VALID'" formControlName="FName" type="text" placeholder="Enter Your First Name" class="form-control ">
+                        <div *ngIf="signUp.controls['FName'].errors&&signUp.controls['FName'].touched" class="alert alert-danger" role="alert">
+                            First Name Is Required
+                            <!-- {{}} de asmha data enter pritial -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input [class.is-valid]="signUp.controls['LName'].status=='VALID'" formControlName="LName" type="text" placeholder="Enter Your Last Name" class="form-control ">
+                        <div *ngIf="signUp.controls['LName'].errors&&signUp.controls['LName'].touched" class="alert alert-danger" role="alert">
+                            First Name Is Required
+                            <!-- {{}} de asmha data enter pritial -->
+                        </div>
+                    </div>
+                </div>
+                <input [class.is-valid]="signUp.controls['Email'].status=='VALID'" formControlName="Email" type="email" placeholder="Enter Your Email" class="form-control my-3">
+                <div *ngIf="signUp.controls['Email'].errors&&signUp.controls['Email'].touched" class="alert alert-danger" role="alert">
+                    Email Is Required
+                    <!-- {{}} de asmha data enter pritial -->
+                </div>
+                <input [class.is-valid]="signUp.controls['UserName'].status=='VALID'" formControlName="UserName" type="text" placeholder="Enter Your UserName" class="form-control my-3">
+                <div *ngIf="signUp.controls['UserName'].errors&&signUp.controls['UserName'].touched" class="alert alert-danger" role="alert">
+                    UserName Is Required
+                    <!-- {{}} de asmha data enter pritial -->
+                </div>
+                <!-- <input [class.is-valid]="signUp.controls.age.status=='VALID'" formControlName="age" type="number" placeholder="Enter Your Age" class="form-control ">
+                <div *ngIf="signUp.controls.age.errors&&signUp.controls.age.touched" class="alert alert-danger" role="alert">
+                    Email Is Required -->
+                    <!-- {{}} de asmha data enter pritial -->
+                <!-- </div> -->
+                <input [class.is-valid]="signUp.controls['Password'].status=='VALID'" formControlName="Password" type="password" placeholder="Enter Your Password" class="form-control my-3">
+                <div *ngIf="signUp.controls['Password'].errors&&signUp.controls['Password'].touched" class="alert alert-danger" role="alert">
+                    Email Is Required
+                    <!-- {{}} de asmha data enter pritial -->
+                </div>
+                <button [disabled]="signUp.invalid" [ngStyle]="signUp.invalid? {'background-color':'gray','border-color':'gray'}:{'background-color':'#17a2b8','border-color':'#17a2b8'}" class="btn btn-info w-100"><span *ngIf="!isClicked">sign Up</span> <span *ngIf="isClicked">Waiting.....</span></button>
+                <div *ngIf="isSuccess" class="alert alert-success text-center" role="alert">Success</div>
+                <div *ngIf="isUniqueEmail" class="alert alert-danger text-center" role="alert">This Account Is Already LogedIn</div>
+            </div>
+        </form>
+    </div>
+</section>
+    
